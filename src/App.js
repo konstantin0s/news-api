@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 import News from './components/News';
+import Sidenews from './components/Sidenews';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      news1: {
+        type: 'top-headlines',
+        query: 'sources=bbc-news'
+      },
+      news2: {
+        type: 'everything',
+        query: 'domains=techcrunch.com&language=en'
+      }
+    };
   }
   render() {
     return (
@@ -18,8 +28,12 @@ class App extends Component {
           </nav>
         </div>
         <div className="row">
-          <div className="col 8">
-
+          <div className="col s8">
+            <News news={this.state.news1} />
+            <News news={this.state.news2} />
+          </div>
+          <div className="col s4">
+            <Sidenews />
           </div>
         </div>
       </div>
