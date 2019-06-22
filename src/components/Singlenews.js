@@ -1,17 +1,42 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
+import SingleSide from './SingleSide';
 
-class Singleside extends Component {
+class Sidenews extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            news: []
+        };
     }
+
+    componentDidMount() {
+        const url = `https://newsapi.org/v2/${this.props.news.type}?${this.props.news.query}&apiKey=${process.env.REACT_APP_API_KEY}`;
+        axios.get(url)
+            .then((res) => {
+                return res.json();
+            })
+            .then(data => {
+                this.setState({
+                    news: data.articles
+                })
+            })
+            .catch(err => console.log(err));
+    }
+
+    renderItems = () => {
+        return this.state.news.map((item) => (
+            <Sidenews key={item.url} item={item} />
+        ))
+    }
+
     render() {
         return (
-            <div>
-                <h1>Sidenews</h1>
+            <div className="row">
+                <h2>{this.renderItems()}</h2>
             </div>
         );
     }
 }
 
-export default Singleside;
+export default Sidenews;
