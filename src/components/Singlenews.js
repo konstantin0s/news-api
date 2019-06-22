@@ -14,7 +14,7 @@ class Sidenews extends Component {
         const url = `https://newsapi.org/v2/${this.props.news.type}?${this.props.news.query}&apiKey=${process.env.REACT_APP_API_KEY}`;
         axios.get(url)
             .then((res) => {
-                return res.json();
+                return res.data;
             })
             .then(data => {
                 this.setState({
