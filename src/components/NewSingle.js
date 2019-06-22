@@ -1,15 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class NewSingle extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-    render() {
-        return (
-            <div></div>
-        );
-    }
+const NewSingle = ({ item }) => {
+    return <div className="col s4">
+        <div className="card">
+            <div className="card-image">
+                <img src={item.urlToImage} alt={item.title} />
+                <span className="card-title">
+                    {item.source.name}
+                </span>
+            </div>
+            <div className="card-content">
+                <p>{item.title}</p>
+            </div>
+            <div className="card-action">
+                <a href={item.url} target="_blank" className="link">Full Article</a>
+            </div>
+        </div>
+    </div>
 }
+
 
 export default NewSingle;
