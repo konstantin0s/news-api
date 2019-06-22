@@ -1,20 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class SingleSide extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-    render() {
-        return (
-            <div className="divider">
-                <div className="section">
-                    <h5>Section 1</h5>
-                    <p>stuff</p>
-                </div>
+const SingleSide = ({ item }) => {
+
+    return <div className="divider">
+        <a href={item.url} target="_blank" className="lin">
+            <div className="section">
+                <h5>{item.source.name}</h5>
+                <p>{item.title}</p>
             </div>
-        );
-    }
+        </a>
+
+    </div>
+
 }
 
 export default SingleSide;
