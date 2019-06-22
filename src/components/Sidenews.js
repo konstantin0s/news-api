@@ -11,11 +11,19 @@ class Sidenews extends Component {
     }
 
     componentDidMount() {
+        const url = `https://newsapi.org/v2/${this.props.news.type}?${this.props.news.query}&apiKey=${process.env.REACT_APP_API_KEY}`;
+        axios.get(url)
+            .then((res) => {
+                this.setState({
+                    sidenews: res.data.articles
+                })
+            })
+            .catch(err => console.log(err));
 
     }
 
     renderItems = () => {
-        return this.state.news.map((item) => (
+        return this.state.sidenews.map((item) => (
             <SingleSide key={item.url} item={item} />
         ))
     }
