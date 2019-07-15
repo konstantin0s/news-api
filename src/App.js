@@ -28,7 +28,7 @@ class App extends Component {
           <h1>News Feed</h1>
           <nav>
             <div className="nav-wrapper indigo lighten-4">
-              <a href="/" className="brand-logo center">My Feed</a>
+              <a href="/news-api" className="brand-logo center">My Feed</a>
             </div>
           </nav>
         </div>
