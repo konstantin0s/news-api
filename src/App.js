@@ -33,11 +33,11 @@ class App extends Component {
           </nav>
         </div>
         <div className="row">
-          <div className="col s8">
+          <div className="col-md-8 col-lg-8 container-wrapper">
             <News news={this.state.news1} />
             <News news={this.state.news2} />
           </div>
-          <div className="col s4">
+          <div className="col-md-4">
             <Sidenews news={this.state.news3} />
           </div>
         </div>

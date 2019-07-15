@@ -1,9 +1,9 @@
 import React from 'react'
 
 const NewSingle = ({ item }) => {
-    return <div className="col s4">
+    return <div className="col-md-12 col-lg-12">
         <div className="card">
-            <div className="card-image">
+            <div className="card-image col-xs-auto col-md-auto col-lg-8">
                 <img src={item.urlToImage} alt={item.title} />
                 <span className="card-title">
                     {item.source.name}
